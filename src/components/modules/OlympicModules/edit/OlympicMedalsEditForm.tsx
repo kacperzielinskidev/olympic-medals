@@ -1,39 +1,60 @@
-import { useRouter } from "next/router";
-import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { useForm, FormProvider } from "react-hook-form";
+import type { OlympicMedalType } from "../../../../types/olympicMedalType";
 import { api } from "../../../../utils/api";
-import { Notification } from "../../../common/Notification";
-import { Card } from "../../../common/Card";
-import { InputText } from "../../../common/Form/InputText";
 import { InputNumber } from "../../../common/Form/InputNumber";
 import InputSubmit from "../../../common/Form/InputSubmit";
-import { olympicMedalSchema } from "./schema/olympicMedalSchema";
+import { InputText } from "../../../common/Form/InputText";
+import { olympicMedalSchema } from "../add/schema/olympicMedalSchema";
+import { Notification } from "../../../common/Notification";
+import { Card } from "../../../common/Card";
 
-type OlympicMedalType = {
-  name: string;
-  medals: number;
-  gold_medals: number;
-  silver_medals: number;
-  bronze_medals: number;
-};
-
-const OlympicMedalsAddForm = () => {
+const OlympicMedalsEditForm = () => {
   const router = useRouter();
+  const { olympicMedalId } = router.query;
+
+  const { data } = api.olympicMedals.getById.useQuery({
+    olympicMedalId: olympicMedalId as string,
+  });
+
+  const initial = {
+    name: data?.name,
+    gold_medals: data?.gold_medals,
+    silver_medals: data?.silver_medals,
+    bronze_medals: data?.bronze_medals,
+  };
 
   const methods = useForm<OlympicMedalType>({
     resolver: zodResolver(olympicMedalSchema),
+    defaultValues: { ...data },
   });
 
-  const addOlympicMedalMutation = api.olympicMedals.create.useMutation();
-
-  const onSubmit = async (data: OlympicMedalType) => {
-    try {
-      addOlympicMedalMutation.mutate({ ...data });
-      Notification.success({ message: "Country addedd successfull" });
-      await router.push("/olympic-medals");
-    } catch (error) {
-      Notification.error({ message: "Something went wrong" });
+  useEffect(() => {
+    if (initial) {
+      methods.reset({ ...initial });
     }
+  }, [data]);
+
+  const onSuccess = async () => {
+    Notification.success({ message: "Olympic Medal edit successfull" });
+    await router.push(`/olympic-medals/${olympicMedalId as string}`);
+  };
+
+  const editOlympicMedalMutation = api.olympicMedals.update.useMutation({
+    onSuccess,
+    onError(error) {
+      Notification.error({ message: error?.message });
+    },
+  });
+
+  const onSubmit = (data: OlympicMedalType) => {
+    editOlympicMedalMutation.mutate({
+      ...data,
+      olympicMedalId: olympicMedalId as string,
+    });
   };
 
   return (
@@ -67,7 +88,6 @@ const OlympicMedalsAddForm = () => {
               placeholder="Number of Silver Medals"
               size="md"
             />
-
             <InputNumber
               label="Number of bronze Medals"
               name="bronze_medals"
@@ -77,7 +97,7 @@ const OlympicMedalsAddForm = () => {
           </div>
 
           <div className="flex w-full justify-end">
-            <InputSubmit custom="primary">Add</InputSubmit>
+            <InputSubmit custom="primary">Save</InputSubmit>
           </div>
         </form>
       </FormProvider>
@@ -85,4 +105,4 @@ const OlympicMedalsAddForm = () => {
   );
 };
 
-export default OlympicMedalsAddForm;
+export default OlympicMedalsEditForm;
