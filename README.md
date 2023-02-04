@@ -39,3 +39,7 @@ This is a simple Olympic Medals app. Using the application, we can add Countries
 5. Fill .env variables (check .env.example)
 
 ```
+
+## Live 📍
+
+https://olympic-medals-ozph-ix88sb755-gasparuss.vercel.app/
