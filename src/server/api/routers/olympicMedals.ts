@@ -1,14 +1,7 @@
 import { z } from "zod";
 import { TRPCError } from "@trpc/server";
 import { createTRPCRouter, publicProcedure } from "../trpc";
-
-export const olympicMedalSchema = z.object({
-  name: z.string(),
-  medals: z.number(),
-  gold_medals: z.number(),
-  silver_medals: z.number(),
-  bronze_medals: z.number(),
-});
+import { olympicMedalSchema } from "../../../components/modules/OlympicModules/add/schema/olympicMedalSchema";
 
 export const olympicMedalsRouter = createTRPCRouter({
   getAll: publicProcedure.query(({ ctx }) => {

@@ -7,7 +7,7 @@ type DefaultNotificationProps = {
   title?: string;
 };
 
-const Notification = {
+export const Notification = {
   success: (args: DefaultNotificationProps) =>
     showNotification({
       message: args.message || "Sukces",
@@ -31,5 +31,3 @@ const Notification = {
       color: "violet",
     }),
 };
-
-export default Notification;

@@ -33,6 +33,10 @@ const headers = [
 export const OlympicMedalsDatatable = () => {
   const { data, isLoading } = api.olympicMedals.getAll.useQuery();
 
+  if (isLoading) {
+    return <SpinnerOverlay />;
+  }
+
   if (!data) {
     console.error("NO DATA HERE");
     return null;
@@ -50,32 +54,28 @@ export const OlympicMedalsDatatable = () => {
 
   return (
     <>
-      {isLoading ? (
-        <SpinnerOverlay />
-      ) : (
-        <Datatable headers={headers}>
-          {sortedMedals?.map(
-            ({ id, name, bronze_medals, gold_medals, silver_medals }) => (
-              <DatatableRow key={id} headers={headers}>
-                <Link href={`/olympic-medals/${id}`} legacyBehavior>
-                  <a className="td cursor-pointer rounded-l-lg  text-base text-blue-500 hover:underline">
-                    <div className="flex items-center justify-center gap-x-2">
-                      <Flag
-                        code={getCountryCode(name, countryCodeMap)}
-                        className="h-4"
-                      />
-                      <p>{name}</p>
-                    </div>
-                  </a>
-                </Link>
-                <div>{gold_medals ?? ""}</div>
-                <div>{silver_medals ?? ""}</div>
-                <div>{bronze_medals ?? ""}</div>
-              </DatatableRow>
-            )
-          )}
-        </Datatable>
-      )}
+      <Datatable headers={headers}>
+        {sortedMedals?.map(
+          ({ id, name, bronze_medals, gold_medals, silver_medals }) => (
+            <DatatableRow key={id} headers={headers}>
+              <Link href={`/olympic-medals/${id}`} legacyBehavior>
+                <a className="td cursor-pointer rounded-l-lg  text-base text-blue-500 hover:underline">
+                  <div className="flex items-center justify-center gap-x-2">
+                    <Flag
+                      code={getCountryCode(name, countryCodeMap)}
+                      className="h-4"
+                    />
+                    <p>{name}</p>
+                  </div>
+                </a>
+              </Link>
+              <div>{gold_medals ?? ""}</div>
+              <div>{silver_medals ?? ""}</div>
+              <div>{bronze_medals ?? ""}</div>
+            </DatatableRow>
+          )
+        )}
+      </Datatable>
     </>
   );
 };
