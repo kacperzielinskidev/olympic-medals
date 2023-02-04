@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-    provider = "sqlite"
+    provider = "postgresql"
     url      = env("DATABASE_URL")
 }
 
@@ -14,4 +14,14 @@ model Example {
     id        String   @id @default(cuid())
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
+}
+
+model OlympicMedals {
+    id            String   @id @default(cuid())
+    name          String
+    gold_medals   Int
+    silver_medals Int
+    bronze_medals Int
+    createdAt     DateTime @default(now())
+    updatedAt     DateTime @updatedAt
 }
