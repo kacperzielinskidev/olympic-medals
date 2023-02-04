@@ -29,7 +29,7 @@ const OlympicMedalsAddForm = () => {
   const onSubmit = async (data: OlympicMedalType) => {
     try {
       addOlympicMedalMutation.mutate({ ...data });
-      Notification.success({ message: "Country addedd successfull" });
+      Notification.success({ message: "Country addedd successfully" });
       await router.push("/olympic-medals");
     } catch (error) {
       Notification.error({ message: "Something went wrong" });

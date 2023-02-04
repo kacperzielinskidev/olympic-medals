@@ -14,12 +14,11 @@ export const OlympicMedalDeleteModal = ({ open, setOpen }: IModal) => {
   const router = useRouter();
   const { olympicMedalId } = router.query;
 
-  const onSuccess = () => {
-    void router.push("/olympic-medals");
-  };
-
   const deleteOlympicMedalMutation = api.olympicMedals.delete.useMutation({
-    onSuccess,
+    onSuccess() {
+      Notification.success({ message: "Country deleted successfully" });
+      void router.push("/olympic-medals");
+    },
     onError(error) {
       Notification.error({ message: error?.message });
     },

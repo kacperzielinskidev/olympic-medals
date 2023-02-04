@@ -1,5 +1,4 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useForm, FormProvider } from "react-hook-form";
@@ -39,7 +38,7 @@ const OlympicMedalsEditForm = () => {
   }, [data]);
 
   const onSuccess = async () => {
-    Notification.success({ message: "Olympic Medal edit successfull" });
+    Notification.success({ message: "Olympic Medal edit successfully" });
     await router.push(`/olympic-medals/${olympicMedalId as string}`);
   };
 
