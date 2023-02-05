@@ -52,4 +52,4 @@ This is a simple Olympic Medals app. Using the application, we can add Countries
 
 ## Live 📍
 
-https://olympic-medals-ozph-ix88sb755-gasparuss.vercel.app/
+https://olympic-medals-ozph.vercel.app/olympic-medals
