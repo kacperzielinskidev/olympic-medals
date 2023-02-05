@@ -10,6 +10,8 @@ import { InputText } from "../../../common/Form/InputText";
 import { olympicMedalSchema } from "../add/schema/olympicMedalSchema";
 import { Notification } from "../../../common/Notification";
 import { Card } from "../../../common/Card";
+import { Tooltip } from "@mantine/core";
+import { AiOutlineInfoCircle } from "react-icons/ai";
 
 const OlympicMedalsEditForm = () => {
   const router = useRouter();
@@ -64,6 +66,13 @@ const OlympicMedalsEditForm = () => {
           onSubmit={methods.handleSubmit(onSubmit)}
           className="relative flex flex-col gap-4"
         >
+          <Tooltip label="Country names should be in English. For example, Poland, Germany, Brazil">
+            <div
+              className={`flex w-max cursor-help items-center justify-start text-primary`}
+            >
+              <AiOutlineInfoCircle size={24} />
+            </div>
+          </Tooltip>
           <div className="grid grid-cols-2 gap-x-2">
             <InputText
               label="Name of Country"
@@ -88,7 +97,7 @@ const OlympicMedalsEditForm = () => {
               size="md"
             />
             <InputNumber
-              label="Number of bronze Medals"
+              label="Number of Bronze Medals"
               name="bronze_medals"
               placeholder="Number of Bronze Medals"
               size="md"
