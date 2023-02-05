@@ -36,7 +36,7 @@ This is a simple Olympic Medals app. Using the application, we can add Countries
 
 ```bash
 
-1. git clone https://github.com/Gasparuss/ecommerce-wardrobe.git
+1. git clone https://github.com/Gasparuss/olympic-medals.git
 
 2. npm i
 
