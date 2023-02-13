@@ -1,10 +1,10 @@
-import type { OlympicMedals } from "@prisma/client";
 import Link from "next/link";
+import { useState } from "react";
 import Flag from "react-world-flags";
-import { getCountryCode, countryCodeMap } from "../../../../utils";
+import { getCountryCode, countryCodeMap, sortMedals } from "../../../../utils";
 import { api } from "../../../../utils/api";
 
-import { SpinnerOverlay } from "../../../common";
+import { SpinnerOverlay, Notification } from "../../../common";
 import { Datatable, DatatableRow } from "../../../common/Datatable";
 
 const headers = [
@@ -31,26 +31,20 @@ const headers = [
 ];
 
 export const OlympicMedalsDatatable = () => {
-  const { data, isLoading } = api.olympicMedals.getAll.useQuery();
+  const { data, isLoading, isError } = api.olympicMedals.getAll.useQuery();
 
   if (isLoading) {
     return <SpinnerOverlay />;
   }
 
-  if (!data) {
-    console.error("NO DATA HERE");
+  if (isError) {
+    Notification.error({
+      message: "Something went wrong. Please try again later.",
+    });
     return null;
   }
 
-  const sortedMedals: OlympicMedals[] = data.sort((a, b) => {
-    if (b.gold_medals !== a.gold_medals) {
-      return b.gold_medals - a.gold_medals;
-    } else if (b.silver_medals !== a.silver_medals) {
-      return b.silver_medals - a.silver_medals;
-    } else {
-      return b.bronze_medals - a.bronze_medals;
-    }
-  });
+  const sortedMedals = sortMedals(data);
 
   return (
     <>
