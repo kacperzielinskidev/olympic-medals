@@ -5,11 +5,11 @@ import goldMedalImage from "../../../../../public/gold-medal.png";
 import silverMedalImage from "../../../../../public/silver-medal.png";
 import bronzeMedalImage from "../../../../../public/bronze-medal.png";
 import { api } from "../../../../utils/api";
-import { countryCodeMap } from "../../../../utils/countries";
-import { getCountryCode } from "../../../../utils/getCountryCode";
-import { Card } from "../../../common/Card";
 
-const OlympicMedalDetails = () => {
+import { Card } from "../../../common/Card";
+import { getCountryCode, countryCodeMap } from "../../../../utils";
+
+export const OlympicMedalDetails = () => {
   const router = useRouter();
   const { olympicMedalId } = router.query;
 
@@ -43,5 +43,3 @@ const OlympicMedalDetails = () => {
     </Card>
   );
 };
-
-export default OlympicMedalDetails;

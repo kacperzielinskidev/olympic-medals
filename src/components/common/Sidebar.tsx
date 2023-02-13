@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import type { IconType } from "react-icons";
 import { BiMedal } from "react-icons/bi";
 
-const Sidebar = () => {
+export const Sidebar = () => {
   return (
     <div className="fixed left-0 bottom-0 top-[61px] flex w-[240px] flex-col border-r border-slate-200 bg-white shadow-lg">
       <div className="pt-2">
@@ -16,8 +16,6 @@ const Sidebar = () => {
     </div>
   );
 };
-
-export default Sidebar;
 
 export type ISidebarLink = {
   href: string;

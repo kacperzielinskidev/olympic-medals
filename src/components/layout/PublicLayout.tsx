@@ -1,12 +1,11 @@
 import Head from "next/head";
-import { Header } from "../common/Header";
-import Sidebar from "../common/Sidebar";
+import { Sidebar, Header } from "../common";
 
 export interface IPublicLayout {
   children: React.ReactNode;
 }
 
-const PublicLayout: React.FC<IPublicLayout> = ({ children }) => {
+export const PublicLayout: React.FC<IPublicLayout> = ({ children }) => {
   return (
     <>
       <Head>
@@ -22,5 +21,3 @@ const PublicLayout: React.FC<IPublicLayout> = ({ children }) => {
     </>
   );
 };
-
-export default PublicLayout;

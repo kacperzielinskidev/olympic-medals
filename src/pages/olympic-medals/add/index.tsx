@@ -1,9 +1,9 @@
 import Head from "next/head";
 import type { BreadcrumbItemType } from "../../../components/common/Breadcrumb";
 import { Breadcrumb } from "../../../components/common/Breadcrumb";
-import type { NextPageWithLayout } from "../../../components/layout/NextPageWithLayout";
-import PublicLayout from "../../../components/layout/PublicLayout";
-import OlympicMedalsAddForm from "../../../components/modules/OlympicModules/add/OlympicMedalsAddForm";
+import type { NextPageWithLayout } from "../../../components/layout";
+import { PublicLayout } from "../../../components/layout";
+import { OlympicMedalsAddForm } from "../../../components/modules/OlympicModules/add";
 
 const OlympicMedalsAdd: NextPageWithLayout = () => {
   const breadcrumbItems: BreadcrumbItemType[] = [

@@ -1,15 +1,14 @@
 import { useRouter } from "next/router";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { api } from "../../../../utils/api";
+
 import { Notification } from "../../../common/Notification";
 import { Card } from "../../../common/Card";
-import { InputText } from "../../../common/Form/InputText";
-import { InputNumber } from "../../../common/Form/InputNumber";
-import InputSubmit from "../../../common/Form/InputSubmit";
 import { olympicMedalSchema } from "./schema/olympicMedalSchema";
 import { Tooltip } from "@mantine/core";
 import { AiOutlineInfoCircle } from "react-icons/ai";
+import { InputText, InputNumber, InputSubmit } from "../../../common/Form";
+import { api } from "../../../../utils";
 
 type OlympicMedalType = {
   name: string;
@@ -19,7 +18,7 @@ type OlympicMedalType = {
   bronze_medals: number;
 };
 
-const OlympicMedalsAddForm = () => {
+export const OlympicMedalsAddForm = () => {
   const router = useRouter();
 
   const methods = useForm<OlympicMedalType>({
@@ -93,5 +92,3 @@ const OlympicMedalsAddForm = () => {
     </Card>
   );
 };
-
-export default OlympicMedalsAddForm;

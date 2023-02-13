@@ -1,8 +1,9 @@
 import Head from "next/head";
-import type { NextPageWithLayout } from "../components/layout/NextPageWithLayout";
-import PublicLayout from "../components/layout/PublicLayout";
+
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import type { NextPageWithLayout } from "../components/layout";
+import { PublicLayout } from "../components/layout";
 
 const Home: NextPageWithLayout = () => {
   const router = useRouter();

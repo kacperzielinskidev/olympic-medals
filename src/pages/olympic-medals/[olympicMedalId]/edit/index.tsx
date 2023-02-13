@@ -2,9 +2,9 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import type { BreadcrumbItemType } from "../../../../components/common/Breadcrumb";
 import { Breadcrumb } from "../../../../components/common/Breadcrumb";
-import type { NextPageWithLayout } from "../../../../components/layout/NextPageWithLayout";
-import PublicLayout from "../../../../components/layout/PublicLayout";
-import OlympicMedalsEditForm from "../../../../components/modules/OlympicModules/edit/OlympicMedalsEditForm";
+import type { NextPageWithLayout } from "../../../../components/layout";
+import { PublicLayout } from "../../../../components/layout";
+import { OlympicMedalsEditForm } from "../../../../components/modules/OlympicModules/edit";
 
 const OlympicMedalsEdit: NextPageWithLayout = () => {
   const router = useRouter();

@@ -1,0 +1,1 @@
+export { olympicMedalSchema } from "./olympicMedalSchema";

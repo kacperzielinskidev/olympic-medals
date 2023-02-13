@@ -1,11 +1,11 @@
 import type { OlympicMedals } from "@prisma/client";
 import Link from "next/link";
 import Flag from "react-world-flags";
+import { getCountryCode, countryCodeMap } from "../../../../utils";
 import { api } from "../../../../utils/api";
-import { countryCodeMap } from "../../../../utils/countries";
-import { getCountryCode } from "../../../../utils/getCountryCode";
+
+import { SpinnerOverlay } from "../../../common";
 import { Datatable, DatatableRow } from "../../../common/Datatable";
-import { SpinnerOverlay } from "../../../common/SpinnerOverlay";
 
 const headers = [
   {

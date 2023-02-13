@@ -25,7 +25,7 @@ const buttonColor = (color?: string) => {
   }
 };
 
-const Button = ({ children, ...props }: ButtonProps) => {
+export const Button = ({ children, ...props }: ButtonProps) => {
   return (
     <MantineButton
       {...props}
@@ -37,5 +37,3 @@ const Button = ({ children, ...props }: ButtonProps) => {
     </MantineButton>
   );
 };
-
-export default Button;

@@ -1,0 +1,1 @@
+export { OlympicMedalsDatatable } from "./OlympicMedalsDatatable";

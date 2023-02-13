@@ -2,8 +2,9 @@ import Head from "next/head";
 import type { BreadcrumbItemType } from "../../components/common/Breadcrumb";
 import { Breadcrumb } from "../../components/common/Breadcrumb";
 import { PlusButton } from "../../components/common/PlusButton";
-import type { NextPageWithLayout } from "../../components/layout/NextPageWithLayout";
-import PublicLayout from "../../components/layout/PublicLayout";
+import type { NextPageWithLayout } from "../../components/layout";
+import { PublicLayout } from "../../components/layout";
+
 import { OlympicMedalsDatatable } from "../../components/modules/OlympicModules/list/OlympicMedalsDatatable";
 
 const OlympicMedals: NextPageWithLayout = () => {

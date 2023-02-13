@@ -5,9 +5,10 @@ import { NotificationsProvider } from "@mantine/notifications";
 import "../styles/globals.css";
 import "../styles/nprogress.css";
 import { useRouter } from "next/router";
-import type { NextPageWithLayout } from "../components/layout/NextPageWithLayout";
+
 import { useEffect } from "react";
 import type { AppProps } from "next/app";
+import type { NextPageWithLayout } from "../components/layout";
 
 interface AppPropsWithLayout extends AppProps {
   Component: NextPageWithLayout;

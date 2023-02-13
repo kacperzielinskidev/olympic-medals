@@ -1,14 +1,8 @@
-import {
-  TextInput,
-  TextInputProps as MantineTextInputProps,
-} from "@mantine/core";
-import {
-  Controller,
-  FieldError,
-  RefCallBack,
-  useFormContext,
-} from "react-hook-form";
-import { IconType } from "react-icons/lib";
+import type { TextInputProps as MantineTextInputProps } from "@mantine/core";
+import { TextInput } from "@mantine/core";
+import type { FieldError, RefCallBack } from "react-hook-form";
+import { Controller, useFormContext } from "react-hook-form";
+import type { IconType } from "react-icons/lib";
 
 type InputTextProps = {
   name: string;

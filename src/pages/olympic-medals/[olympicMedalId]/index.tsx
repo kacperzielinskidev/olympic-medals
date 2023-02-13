@@ -1,15 +1,16 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import type { BreadcrumbItemType } from "../../../components/common/Breadcrumb";
-import { Breadcrumb } from "../../../components/common/Breadcrumb";
-import { CustomIconButton } from "../../../components/common/CustomIconButton";
-import type { NextPageWithLayout } from "../../../components/layout/NextPageWithLayout";
-import PublicLayout from "../../../components/layout/PublicLayout";
+
 import { MdModeEditOutline } from "react-icons/md";
 import { BsTrashFill } from "react-icons/bs";
-import OlympicMedalDetails from "../../../components/modules/OlympicModules/single/OlympicMedalDetails";
+
 import { OlympicMedalDeleteModal } from "../../../components/modules/OlympicModules/single/OlympicMedalDeleteModal";
+import type { BreadcrumbItemType } from "../../../components/common";
+import { CustomIconButton, Breadcrumb } from "../../../components/common";
+import type { NextPageWithLayout } from "../../../components/layout";
+import { PublicLayout } from "../../../components/layout";
+import { OlympicMedalDetails } from "../../../components/modules/OlympicModules/single";
 
 const OlympicMedal: NextPageWithLayout = () => {
   const router = useRouter();

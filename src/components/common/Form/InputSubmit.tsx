@@ -1,10 +1,14 @@
 import { useFormContext } from "react-hook-form";
 import type { ButtonProps } from "../Button";
-import Button from "../Button";
+import { Button } from "../Button";
 
 export type InputSubmitProps = ButtonProps;
 
-const InputSubmit = ({ onClick, children, ...props }: InputSubmitProps) => {
+export const InputSubmit = ({
+  onClick,
+  children,
+  ...props
+}: InputSubmitProps) => {
   const { formState } = useFormContext();
   const { isSubmitting, isValid } = formState;
 
@@ -14,5 +18,3 @@ const InputSubmit = ({ onClick, children, ...props }: InputSubmitProps) => {
     </Button>
   );
 };
-
-export default InputSubmit;

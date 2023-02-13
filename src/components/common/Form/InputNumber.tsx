@@ -1,6 +1,7 @@
-import { NumberInput, NumberInputProps } from "@mantine/core";
+import type { NumberInputProps } from "@mantine/core";
+import { NumberInput } from "@mantine/core";
 import { Controller, useFormContext } from "react-hook-form";
-import { IconType } from "react-icons/lib";
+import type { IconType } from "react-icons/lib";
 
 export interface InputNumberProps extends Omit<NumberInputProps, "icon"> {
   name: string;

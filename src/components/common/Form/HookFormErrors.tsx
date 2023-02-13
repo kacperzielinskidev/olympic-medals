@@ -1,6 +1,6 @@
 import { useFormContext } from "react-hook-form";
 
-const HookFormErrors = () => {
+export const HookFormErrors = () => {
   const { formState } = useFormContext();
   const { errors } = formState;
 
@@ -15,5 +15,3 @@ const HookFormErrors = () => {
     </div>
   );
 };
-
-export default HookFormErrors;

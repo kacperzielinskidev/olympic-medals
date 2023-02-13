@@ -4,16 +4,15 @@ import { useEffect } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import type { OlympicMedalType } from "../../../../types/olympicMedalType";
 import { api } from "../../../../utils/api";
-import { InputNumber } from "../../../common/Form/InputNumber";
-import InputSubmit from "../../../common/Form/InputSubmit";
-import { InputText } from "../../../common/Form/InputText";
+
 import { olympicMedalSchema } from "../add/schema/olympicMedalSchema";
 import { Notification } from "../../../common/Notification";
 import { Card } from "../../../common/Card";
 import { Tooltip } from "@mantine/core";
 import { AiOutlineInfoCircle } from "react-icons/ai";
+import { InputText, InputNumber, InputSubmit } from "../../../common/Form";
 
-const OlympicMedalsEditForm = () => {
+export const OlympicMedalsEditForm = () => {
   const router = useRouter();
   const { olympicMedalId } = router.query;
 
@@ -112,5 +111,3 @@ const OlympicMedalsEditForm = () => {
     </Card>
   );
 };
-
-export default OlympicMedalsEditForm;

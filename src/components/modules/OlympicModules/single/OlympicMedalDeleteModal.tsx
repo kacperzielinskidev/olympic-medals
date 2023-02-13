@@ -2,7 +2,7 @@ import { Modal } from "@mantine/core";
 import { useRouter } from "next/router";
 import { IoCloseOutline } from "react-icons/io5";
 import { api } from "../../../../utils/api";
-import Button from "../../../common/Button";
+import { Button } from "../../../common";
 import { Notification } from "../../../common/Notification";
 
 interface IModal {
